@@ -1,5 +1,5 @@
 <template>
-<div id='signup'>
+<div class='inputForm'>
   <v-form ref="form" v-model="valid" lazy-validation >
     <v-text-field
       v-model="name"
@@ -136,7 +136,7 @@ export default {
 </script>
 
 <style>
-#signup{
+.inputForm{
   width: 60vw;
   margin: auto;
   background: lightgrey;

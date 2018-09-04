@@ -1,5 +1,5 @@
 <template>
-<div id='signup'>
+<div class='inputForm'>
   <v-form ref="form" >
      <v-text-field
       v-model="username"
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: 'hello-world',
+  name: 'login',
   data: () => ({
     username: '',
     password: ''
