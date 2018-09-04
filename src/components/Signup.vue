@@ -1,5 +1,5 @@
 <template>
-<div id='signup'>
+<div class='inputForm'>
   <v-form ref="form" v-model="valid" lazy-validation >
     <v-text-field
       v-model="name"
@@ -50,7 +50,7 @@
         <v-card-title
           class="headline grey lighten-2"
           primary-title
-        > Please confirm your information: 
+        > Please confirm your information:
         </v-card-title>
 
         <v-card-text>
@@ -86,57 +86,57 @@
 </template>
 
 <script>
-  // import axios from 'axios'
+// import axios from 'axios'
 
-  export default {
-    name: 'hello-world',
-    data: () => ({
-      dialog: false,
-      valid: true,
-      name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-      ],
-      username: '',
-      usernameRules:[
-        v => !!v || 'Username is required',
-      ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid'
-      ],
-      password: '',
-      passwordRules: [
-        v => !!v || 'Password is required',
-        v => (v && v.length >= 12) || 'Password must be at least 12 characters'
-      ],
-      confirmPassword: '',
-      confirmPasswordRules: [
-        v => !!v || 'Password is required',
-         v => (v && v.length >= 12) || 'Password must be at least 12 characters'
-      ]
-    }),
+export default {
+  name: 'Signup',
+  data: () => ({
+    dialog: false,
+    valid: true,
+    name: '',
+    nameRules: [
+      v => !!v || 'Name is required'
+    ],
+    username: '',
+    usernameRules: [
+      v => !!v || 'Username is required'
+    ],
+    email: '',
+    emailRules: [
+      v => !!v || 'E-mail is required',
+      v => /.+@.+/.test(v) || 'E-mail must be valid'
+    ],
+    password: '',
+    passwordRules: [
+      v => !!v || 'Password is required',
+      v => (v && v.length >= 12) || 'Password must be at least 12 characters'
+    ],
+    confirmPassword: '',
+    confirmPasswordRules: [
+      v => !!v || 'Password is required',
+      v => (v && v.length >= 12) || 'Password must be at least 12 characters'
+    ]
+  }),
 
-    methods: {
-      submit () {
-        if (this.$refs.form.validate()) {
+  methods: {
+    submit () {
+      if (this.$refs.form.validate()) {
         // alert('All done')
         // if (window.confirm(`Please confirm your name: ${this.name}, username: ${this.username}, and email: ${this.email}`)) {
-            // console.log('confirmed')
+        // console.log('confirmed')
         // }
-            this.dialog=true
-        }
-      },
-      clear () {
-        this.$refs.form.reset()
+        this.dialog = true
       }
+    },
+    clear () {
+      this.$refs.form.reset()
     }
   }
+}
 </script>
 
 <style>
-#signup{
+.inputForm{
   width: 60vw;
   margin: auto;
   background: lightgrey;
