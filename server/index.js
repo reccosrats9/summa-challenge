@@ -12,6 +12,7 @@ app.use(function (req, res, next) {
 })
 
 app.post('/login', cont.login)
+app.post('/register', cont.register)
 app.get('/users', cont.getUsers)
 
 const port = 3838;
