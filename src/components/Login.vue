@@ -41,8 +41,7 @@ export default {
   mounted(){
     console.log(this.loggedIn)
     if(this.loggedIn){
-      this.$router.push('/users')
-      console.log(this.$route)
+      this.$router.push('/')
     }
   },
   methods:{
@@ -60,7 +59,7 @@ export default {
         console.log('55',res.data)
         this.vuexLogin(res.data)
         console.log('59', this.user, this.loggedIn)
-        this.$router.push('/users')
+        this.$router.push('/')
     }).catch(err=>alert("The username and password you entered didn't match our records. Please try again"))
         }
     }

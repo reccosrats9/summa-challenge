@@ -35,7 +35,7 @@
     ></v-text-field>
     <v-btn
       :disabled="!valid"
-      @click="submit"
+      @click="confirm"
       color=#47B784
     >
       CREATE ACCOUNT
@@ -72,7 +72,7 @@
           <v-btn
             color="primary"
             flat
-            @click="dialog = false"
+            @click="submit"
           >
             This is correct
           </v-btn>
@@ -86,7 +86,8 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'Signup',
@@ -117,9 +118,25 @@ export default {
       v => (v && v.length >= 12) || 'Password must be at least 12 characters'
     ]
   }),
+  computed: mapState([
+    'user',
+    'loggedIn'
+  ]),
+  mounted(){
+    console.log(this.loggedIn)
+    if(this.loggedIn){
+      this.$router.push('/')
+    }
+  },
 
   methods: {
-    submit () {
+    ...mapMutations([
+      'LOGIN'
+    ]),
+    vuexLogin: function(user) {
+      this.LOGIN(user)
+    },
+    confirm () {
       if (this.$refs.form.validate()) {
         // alert('All done')
         // if (window.confirm(`Please confirm your name: ${this.name}, username: ${this.username}, and email: ${this.email}`)) {
@@ -127,6 +144,14 @@ export default {
         // }
         this.dialog = true
       }
+    },
+    submit(){
+      this.dialog=false
+      const {name, username, email, password} = this
+      axios.post('http://localhost:3838/register',{name, username, email, password}).then(res=>{
+        this.vuexLogin(res.data)
+        this.$router.push('/')
+      })
     },
     clear () {
       this.$refs.form.reset()
