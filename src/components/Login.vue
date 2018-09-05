@@ -15,8 +15,7 @@
     <v-btn 
     @click="loginHandle" 
     color=#47B784
-    >
-      LOG IN
+    >LOG IN
     </v-btn>
 
   </v-form>
@@ -40,7 +39,7 @@ export default {
   ]),
   mounted(){
     if(this.loggedIn){
-      this.$router.push('/')
+      this.$router.push('/users')
     }
   },
   methods:{
@@ -55,10 +54,8 @@ export default {
         username: this.username,
         password: this.password
       }).then(res=>{
-        console.log('55',res.data)
         this.vuexLogin(res.data)
-        console.log('59', this.user, this.loggedIn)
-        this.$router.push('/')
+        this.$router.push('/users')
     }).catch(err=>alert("The username and password you entered didn't match our records. Please try again"))
         }
     }

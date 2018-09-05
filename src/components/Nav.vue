@@ -11,7 +11,7 @@ import axios from 'axios'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  name: 'nav',
+  name: 'navbar',
   computed: mapState([
     'user',
     'loggedIn'
