@@ -1,7 +1,6 @@
 <template>
 <div>
-    <h1>Users</h1>
-     <v-card  class='userCard' color='#47B784'>
+     <v-card  class='userCard' color='#D3D3D3'>
         <h3 >{{user.name}}</h3>
         <h5 >{{user.username}}</h5>
         <h5 >{{user.email}}</h5>
