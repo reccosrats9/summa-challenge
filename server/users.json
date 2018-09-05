@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Sara Hagstrom",
+        "username": "shagstrom",
+        "email": "sara@gmail.com",
+        "password": "passwordpassword"
+    },
+    {
+        "name": "Joe Blank",
+        "username": "jblank",
+        "email": "joe@gmail.com",
+        "password": "passwordpassword"
+    },
+    {
+        "name": "Ali Skalla",
+        "username": "askalla",
+        "email": "ali@gmail.com",
+        "password": "passwordpassword"
+    }
+]
