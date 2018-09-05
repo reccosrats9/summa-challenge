@@ -28,7 +28,10 @@ export default {
         'loggedIn'
     ]),
     mounted(){
-        axios.get('http://localhost:3838/users').then(res=>{
+        if(!this.loggedIn){
+            this.$router.push('/login')
+        } else{
+            axios.get('http://localhost:3838/users').then(res=>{
             let users=res.data
             console.log(this.user)
             let updated=users.filter(user=>user.name!==this.user.name)
@@ -36,6 +39,7 @@ export default {
             this.users=updated
         }
         )
+        }      
     } 
 }
 </script>
