@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
@@ -16,16 +15,16 @@ export default {
     'user',
     'loggedIn'
   ]),
-  methods:{
+  methods: {
     ...mapMutations([
       'LOGOUT'
     ]),
-    vuexLogout: function() {
+    vuexLogout: function () {
       this.LOGOUT()
       this.$router.push('/login')
-    },
     }
   }
+}
 </script>
 
 <style>

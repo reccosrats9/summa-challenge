@@ -112,16 +112,15 @@ export default {
     ],
     confirmPassword: '',
     confirmPasswordRules: [
-      v => !!v || 'Password is required',
-
+      v => !!v || 'Password is required'
     ]
   }),
   computed: mapState([
     'user',
     'loggedIn'
   ]),
-  mounted(){
-    if(this.loggedIn){
+  mounted () {
+    if (this.loggedIn) {
       this.$router.push('/users')
     }
   },
@@ -130,22 +129,22 @@ export default {
     ...mapMutations([
       'LOGIN'
     ]),
-    vuexLogin: function(user) {
+    vuexLogin: function (user) {
       this.LOGIN(user)
     },
     confirm () {
-      if (this.$refs.form.validate() &&this.password===this.confirmPassword) {
+      if (this.$refs.form.validate() && this.password === this.confirmPassword) {
         this.dialog = true
-      } else{alert('Passwords must match')}
+      } else { alert('Passwords must match') }
     },
-    submit(){
-      this.dialog=false
-      const {name, username, email, password} = this
-      axios.post('http://localhost:3838/register',{name, username, email, password}).then(res=>{
+    submit () {
+      this.dialog = false
+      const { name, username, email, password } = this
+      axios.post('http://localhost:3838/register', { name, username, email, password }).then(res => {
         this.vuexLogin(res.data)
         this.$router.push('/users')
       })
-    },
+    }
   }
 }
 </script>

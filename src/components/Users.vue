@@ -18,26 +18,26 @@ import axios from 'axios'
 import { mapState } from 'vuex'
 
 export default {
-    name: 'users',
-    data: ()=>({
-        users: []
-    }),
-    computed: mapState([
-        'user',
-        'loggedIn'
-    ]),
-    mounted(){
-        if(!this.loggedIn){
-            this.$router.push('/login')
-        } else{
-            axios.get('http://localhost:3838/users').then(res=>{
-            let users=res.data
-            let updated=users.filter(user=>user.name!==this.user.name)
-            this.users=updated
-        }
-        )
-        }      
-    } 
+  name: 'users',
+  data: () => ({
+    users: []
+  }),
+  computed: mapState([
+    'user',
+    'loggedIn'
+  ]),
+  mounted () {
+    if (!this.loggedIn) {
+      this.$router.push('/login')
+    } else {
+      axios.get('http://localhost:3838/users').then(res => {
+        let users = res.data
+        let updated = users.filter(user => user.name !== this.user.name)
+        this.users = updated
+      }
+      )
+    }
+  }
 }
 </script>
 

@@ -12,8 +12,8 @@
       type="password"
       required
     ></v-text-field>
-    <v-btn 
-    @click="loginHandle" 
+    <v-btn
+    @click="loginHandle"
     color=#47B784
     >LOG IN
     </v-btn>
@@ -37,28 +37,28 @@ export default {
     'user',
     'loggedIn'
   ]),
-  mounted(){
-    if(this.loggedIn){
+  mounted () {
+    if (this.loggedIn) {
       this.$router.push('/users')
     }
   },
-  methods:{
+  methods: {
     ...mapMutations([
       'LOGIN'
     ]),
-    vuexLogin: function(user) {
+    vuexLogin: function (user) {
       this.LOGIN(user)
     },
-    loginHandle(){
+    loginHandle () {
       axios.post('http://localhost:3838/login', {
         username: this.username,
         password: this.password
-      }).then(res=>{
+      }).then(res => {
         this.vuexLogin(res.data)
         this.$router.push('/users')
-    }).catch(err=>alert("The username and password you entered didn't match our records. Please try again"))
-        }
+      }).catch(err => alert("The username and password you entered didn't match our records. Please try again"))
     }
   }
+}
 
 </script>
