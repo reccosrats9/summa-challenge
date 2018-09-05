@@ -151,9 +151,9 @@ export default {
 
 <style>
 .inputForm{
-  width: 60vw;
+  width: 500px;
   margin: auto;
   background: lightgrey;
-  padding: 20px;
+  padding: 40px;
 }
 </style>
