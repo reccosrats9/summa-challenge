@@ -1,13 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Users</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/signup">Sign Up</router-link>
-    </div>
+  <Nav/>
     <router-view/>
   </div>
 </template>
+
+<script>
+import Nav from './components/Nav.vue'
+  
+export default {
+  name: 'app',
+  components: {
+    Nav
+  }
+}
+
+</script>
 
 <style>
 #app {

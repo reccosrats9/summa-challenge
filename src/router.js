@@ -12,7 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'users',
+      name: 'Users',
       component: Users
     },
     {
@@ -22,7 +22,7 @@ export default new Router({
     },
     {
       path: '/login',
-      name: '/login',
+      name: 'Login',
       component: Login
     }
   ]
