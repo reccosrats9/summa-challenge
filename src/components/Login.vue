@@ -50,7 +50,7 @@ export default {
       this.LOGIN(user)
     },
     loginHandle () {
-      axios.post('http://localhost:3838/login', {
+      axios.post('/login', {
         username: this.username,
         password: this.password
       }).then(res => {

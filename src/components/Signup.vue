@@ -140,7 +140,7 @@ export default {
     submit () {
       this.dialog = false
       const { name, username, email, password } = this
-      axios.post('http://localhost:3838/register', { name, username, email, password }).then(res => {
+      axios.post('/register', { name, username, email, password }).then(res => {
         this.vuexLogin(res.data)
         this.$router.push('/users')
       })

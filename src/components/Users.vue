@@ -30,7 +30,7 @@ export default {
     if (!this.loggedIn) {
       this.$router.push('/login')
     } else {
-      axios.get('http://localhost:3838/users').then(res => {
+      axios.get('/users').then(res => {
         let users = res.data
         let updated = users.filter(user => user.name !== this.user.name)
         this.users = updated
