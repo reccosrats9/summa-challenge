@@ -4,6 +4,7 @@
      <v-text-field
       v-model="username"
       label="Username"
+      v-on:keyup.enter="loginHandle"
       required
     ></v-text-field>
      <v-text-field
@@ -11,6 +12,7 @@
       label="Password"
       type="password"
       required
+      v-on:keyup.enter="loginHandle"
     ></v-text-field>
     <v-btn
     @click="loginHandle"
@@ -56,7 +58,10 @@ export default {
       }).then(res => {
         this.vuexLogin(res.data)
         this.$router.push('/users')
-      }).catch(err => alert("The username and password you entered didn't match our records. Please try again"))
+      }).catch(err => {
+        console.log(err)
+        alert("The username and password you entered didn't match our records. Please try again")
+      })
     }
   }
 }

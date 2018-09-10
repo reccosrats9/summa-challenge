@@ -5,18 +5,21 @@
       v-model="name"
       :rules="nameRules"
       label="Name"
+      @keyup.enter="confirm"
       required
     ></v-text-field>
      <v-text-field
       v-model="username"
       :rules='usernameRules'
       label="Username"
+      @keyup.enter="confirm"
       required
     ></v-text-field>
     <v-text-field
       v-model="email"
       :rules="emailRules"
       label="Email Address"
+      @keyup.enter="confirm"
       required
     ></v-text-field>
      <v-text-field
@@ -24,6 +27,7 @@
       :rules='passwordRules'
       label="Password"
       type="password"
+      @keyup.enter="confirm"
       required
     ></v-text-field>
     <v-text-field
@@ -31,6 +35,7 @@
       :rules='confirmPasswordRules'
       label="Confirm Password"
       type="password"
+      @keyup.enter="confirm"
       required
     ></v-text-field>
     <v-btn
@@ -44,7 +49,7 @@
       width="500"
     >
 
-      <v-card v-if="dialog">
+      <v-card v-if="dialog" >
         <v-card-title
           class="headline grey lighten-2"
           primary-title
@@ -135,7 +140,7 @@ export default {
     confirm () {
       if (this.$refs.form.validate() && this.password === this.confirmPassword) {
         this.dialog = true
-      } else { alert('Passwords must match') }
+      } else { alert('All fields must be complete and passwords must match') }
     },
     submit () {
       this.dialog = false
